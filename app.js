@@ -1,12 +1,12 @@
 import express from "express";
-import { Chess } from "chess.js";
 import path from "path";
-import { createServer } from "http";
 import { Server } from "socket.io";
 import { fileURLToPath } from "url";
+import { Chess } from "chess.js";
+import { createServer } from "http";
 
 const app = express();
-const httpServer = createServer(app);
+const server = createServer(app);
 const io = new Server(httpServer);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -65,6 +65,6 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(3000, () => {
+server.listen(3000, () => {
   console.log("server is running on port 3000!!!");
 });
