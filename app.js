@@ -7,7 +7,7 @@ import { createServer } from "http";
 
 const app = express();
 const server = createServer(app);
-const io = new Server(httpServer);
+const io = new Server(server);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
